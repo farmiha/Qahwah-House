@@ -36,6 +36,46 @@ p{font-size:1.05rem;color:var(--text-secondary)}
 .hamburger.active span:nth-child(2){opacity:0}
 .hamburger.active span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 
+/* CART ICON */
+.cart-btn{position:relative;background:none;border:1px solid rgba(192,123,58,.4);border-radius:6px;cursor:pointer;color:rgba(245,239,230,.85);display:flex;align-items:center;gap:8px;font-family:var(--fu);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;padding:8px 16px;transition:all var(--tr)}
+.cart-btn:hover{background:var(--amber);border-color:var(--amber);color:#fff}
+.cart-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0}
+.cart-count{background:var(--amber);color:#fff;font-family:var(--fu);font-size:.6rem;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(0);transition:all .25s cubic-bezier(.4,0,.2,1)}
+.cart-count.visible{opacity:1;transform:scale(1)}
+
+/* CART OVERLAY + DRAWER */
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1200;opacity:0;pointer-events:none;transition:opacity .3s ease}
+.cart-overlay.open{opacity:1;pointer-events:all}
+.cart-drawer{position:fixed;top:0;right:-440px;bottom:0;width:min(440px,100vw);background:var(--warm-white);z-index:1300;display:flex;flex-direction:column;transition:right .4s cubic-bezier(.4,0,.2,1);box-shadow:-8px 0 40px rgba(0,0,0,.2)}
+.cart-drawer.open{right:0}
+.cart-header{display:flex;align-items:center;justify-content:space-between;padding:24px 28px;border-bottom:1px solid var(--border);background:var(--espresso)}
+.cart-header h2{font-family:var(--fd);color:var(--cream);font-size:1.3rem}
+.cart-close{background:none;border:none;cursor:pointer;color:rgba(245,239,230,.6);font-size:1.3rem;line-height:1;transition:color .2s;padding:4px}
+.cart-close:hover{color:var(--cream)}
+.cart-items{flex:1;overflow-y:auto;padding:24px 28px;display:flex;flex-direction:column;gap:14px}
+.cart-empty{text-align:center;padding:60px 0;color:var(--text-muted);font-family:var(--fu);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+.cart-empty svg{width:44px;height:44px;stroke:var(--border-strong);fill:none;stroke-width:1.5;margin:0 auto 16px}
+.cart-item{display:flex;align-items:center;gap:14px;padding:14px 16px;background:var(--cream);border-radius:8px;border:1px solid var(--border)}
+.cart-item-info{flex:1;min-width:0}
+.cart-item-info h4{font-family:var(--fd);font-size:.95rem;color:var(--espresso);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cart-item-info span{font-family:var(--fu);font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em}
+.cart-item-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0}
+.cart-item-price{font-family:var(--fd);font-size:1.05rem;font-weight:700;color:var(--amber)}
+.cart-item-qty{display:flex;align-items:center;gap:8px}
+.qty-btn{width:26px;height:26px;border-radius:50%;border:1px solid var(--border-strong);background:none;cursor:pointer;font-size:.95rem;color:var(--text-secondary);display:flex;align-items:center;justify-content:center;transition:all .2s;line-height:1;padding:0}
+.qty-btn:hover{background:var(--amber);border-color:var(--amber);color:#fff}
+.qty-num{font-family:var(--fu);font-size:.85rem;font-weight:500;color:var(--espresso);min-width:18px;text-align:center}
+.cart-footer{padding:24px 28px;border-top:1px solid var(--border);background:#fff}
+.cart-total{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.cart-total span:first-child{font-family:var(--fu);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted)}
+.cart-total span:last-child{font-family:var(--fd);font-size:1.7rem;font-weight:700;color:var(--espresso)}
+.checkout-btn{width:100%;padding:16px;background:var(--amber);color:#fff;border:none;border-radius:6px;font-family:var(--fu);font-size:.8rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+.checkout-btn:hover{background:var(--dark-roast)}
+
+/* TOAST */
+.toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--espresso);color:var(--cream);font-family:var(--fu);font-size:.75rem;letter-spacing:.1em;padding:11px 24px;border-radius:40px;border:1px solid rgba(192,123,58,.4);opacity:0;pointer-events:none;transition:all .3s ease;z-index:2000;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
 /* PAGE HERO */
 .page-hero{background:linear-gradient(160deg,#1a0a02 0%,#2d1505 50%,#4a1a08 100%);min-height:380px;display:flex;align-items:flex-end;padding:80px 40px 60px;position:relative;overflow:hidden}
 .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 70%,rgba(192,123,58,.15) 0%,transparent 60%)}
@@ -56,16 +96,7 @@ p{font-size:1.05rem;color:var(--text-secondary)}
 .menu-slider-wrapper{position:relative;width:100%;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(26,10,2,.15);background:var(--espresso)}
 .menu-slide{display:none;position:relative}
 .menu-slide.active{display:block}
-
-/* KEY FIX: contain so full image is visible, dark bg fills gaps */
-.menu-slide > img{
-  width:100%;
-  height:560px;
-  object-fit:contain;
-  object-position:center center;
-  display:block;
-  background:#1a0a02;
-}
+.menu-slide > img{width:100%;height:560px;object-fit:contain;object-position:center center;display:block;background:#1a0a02;}
 
 /* info bar */
 .menu-slide-info{position:absolute;bottom:0;left:0;right:0;background:rgba(26,10,2,.82);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:space-between;padding:24px 32px;gap:24px}
@@ -73,9 +104,23 @@ p{font-size:1.05rem;color:var(--text-secondary)}
 .card-badge{display:inline-block;background:var(--amber);color:#fff;font-family:var(--fu);font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:3px 12px;border-radius:20px;margin-bottom:8px}
 .menu-slide-left h3{font-family:var(--fd);font-size:1.6rem;color:var(--cream);margin-bottom:6px}
 .menu-slide-left p{font-size:.95rem;color:rgba(245,239,230,.7);line-height:1.5}
-.menu-slide-price{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.menu-slide-price{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0}
 .card-price{font-family:var(--fd);font-size:2rem;font-weight:700;color:var(--amber)}
 .card-size{font-family:var(--fu);font-size:.7rem;letter-spacing:.1em;color:rgba(245,239,230,.5);text-transform:uppercase}
+
+/* ADD TO CART — inline (inside slide) */
+.add-to-cart-inline{background:var(--amber);color:#fff;border:none;border-radius:6px;font-family:var(--fu);font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:9px 16px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.add-to-cart-inline:hover{background:#fff;color:var(--amber)}
+.add-to-cart-inline svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.2;flex-shrink:0}
+.add-to-cart-inline.added{background:#2d6a4f}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
+.add-to-cart-inline.added{animation:pop .25s ease}
+
+/* ADD TO CART — below slider */
+.slide-below-btn{display:flex;justify-content:center;padding:20px 0 4px;background:var(--warm-white)}
+.add-to-cart-below{background:transparent;color:var(--amber);border:1.5px solid var(--amber);border-radius:6px;font-family:var(--fu);font-size:.75rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;padding:13px 36px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:10px}
+.add-to-cart-below:hover{background:var(--amber);color:#fff}
+.add-to-cart-below svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8}
 
 /* arrows */
 .ms-arrow{position:absolute;top:42%;transform:translateY(-50%);background:rgba(26,10,2,.55);border:1px solid rgba(192,123,58,.5);color:var(--cream);width:52px;height:52px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s ease;z-index:10}
@@ -111,20 +156,7 @@ p{font-size:1.05rem;color:var(--text-secondary)}
 
 @media(max-width:768px){
   .hamburger{display:flex}
-  .nav-links{
-    position:fixed;top:0;right:-100%;bottom:0;
-    width:min(320px,80vw);
-    background:var(--espresso);
-    flex-direction:column;
-    justify-content:center;
-    align-items:flex-start;
-    padding:80px 48px;
-    gap:32px;
-    transition:right .4s cubic-bezier(.4,0,.2,1);
-    border-left:1px solid rgba(192,123,58,.2);
-    z-index:1000;
-    display:flex;
-  }
+  .nav-links{position:fixed;top:0;right:-100%;bottom:0;width:min(320px,80vw);background:var(--espresso);flex-direction:column;justify-content:center;align-items:flex-start;padding:80px 48px;gap:32px;transition:right .4s cubic-bezier(.4,0,.2,1);border-left:1px solid rgba(192,123,58,.2);z-index:1000;display:flex;}
   .nav-links.open{right:0}
   .nav-links a{font-size:1.1rem}
   .navbar{padding:0 20px}
@@ -153,8 +185,40 @@ p{font-size:1.05rem;color:var(--text-secondary)}
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+    <button class="cart-btn" id="cart-btn" aria-label="Open cart">
+      <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      Cart
+      <span class="cart-count" id="cart-count">0</span>
+    </button>
   </nav>
 </header>
+
+<!-- CART OVERLAY -->
+<div class="cart-overlay" id="cart-overlay"></div>
+
+<!-- CART DRAWER -->
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-header">
+    <h2>Your Cart</h2>
+    <button class="cart-close" id="cart-close">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items">
+    <div class="cart-empty" id="cart-empty">
+      <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      Your cart is empty
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total</span>
+      <span id="cart-total">$0.00</span>
+    </div>
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
 
 <section class="page-hero">
   <div class="phc">
@@ -175,7 +239,7 @@ p{font-size:1.05rem;color:var(--text-secondary)}
     <!-- DRINKS SLIDER -->
     <div class="tab-content active" id="tab-drinks">
       <div class="menu-slider-wrapper" id="slider-drinks">
-        <div class="menu-slide active">
+        <div class="menu-slide active" data-name="Traditional Qahwah" data-price="6.50" data-size="12 oz">
           <img src="img4.jpg" alt="Traditional Qahwah" />
           <div class="menu-slide-info">
             <div class="menu-slide-left">
@@ -183,10 +247,16 @@ p{font-size:1.05rem;color:var(--text-secondary)}
               <h3>Traditional Qahwah</h3>
               <p>Ancient Yemeni spiced coffee with ginger, cardamom & saffron — served the original way.</p>
             </div>
-            <div class="menu-slide-price"><span class="card-price">$6.50</span><span class="card-size">12 oz</span></div>
+            <div class="menu-slide-price">
+              <span class="card-price">$6.50</span>
+              <span class="card-size">12 oz</span>
+              <button class="add-to-cart-inline" onclick="addToCartFromSlide(this)">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add to Cart
+              </button>
+            </div>
           </div>
         </div>
-        <div class="menu-slide">
+        <div class="menu-slide" data-name="Adeni Chai" data-price="7.00" data-size="12 oz">
           <img src="img3.jpg" alt="Adeni Chai" />
           <div class="menu-slide-info">
             <div class="menu-slide-left">
@@ -194,10 +264,16 @@ p{font-size:1.05rem;color:var(--text-secondary)}
               <h3>Adeni Chai</h3>
               <p>Yemeni black tea with cardamom, nutmeg & evaporated milk — famous worldwide.</p>
             </div>
-            <div class="menu-slide-price"><span class="card-price">$7.00</span><span class="card-size">12 oz</span></div>
+            <div class="menu-slide-price">
+              <span class="card-price">$7.00</span>
+              <span class="card-size">12 oz</span>
+              <button class="add-to-cart-inline" onclick="addToCartFromSlide(this)">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add to Cart
+              </button>
+            </div>
           </div>
         </div>
-        <div class="menu-slide">
+        <div class="menu-slide" data-name="Mofawar" data-price="7.50" data-size="12 oz">
           <img src="img5.jpg" alt="Mofawar" />
           <div class="menu-slide-info">
             <div class="menu-slide-left">
@@ -205,81 +281,135 @@ p{font-size:1.05rem;color:var(--text-secondary)}
               <h3>Mofawar</h3>
               <p>Sana'ani blend with cream — a beloved Yemeni classic treasured for generations.</p>
             </div>
-            <div class="menu-slide-price"><span class="card-price">$7.50</span><span class="card-size">12 oz</span></div>
+            <div class="menu-slide-price">
+              <span class="card-price">$7.50</span>
+              <span class="card-size">12 oz</span>
+              <button class="add-to-cart-inline" onclick="addToCartFromSlide(this)">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add to Cart
+              </button>
+            </div>
           </div>
         </div>
-        <div class="menu-slide">
+        <div class="menu-slide" data-name="Sana'ani Coffee" data-price="7.50" data-size="12 oz">
           <img src="img7.jpg" alt="Sana'ani Coffee" />
           <div class="menu-slide-info">
             <div class="menu-slide-left">
               <h3>Sana'ani Coffee</h3>
               <p>Finely ground medium roast mixed with cardamom from Yemen's mountain capital.</p>
             </div>
-            <div class="menu-slide-price"><span class="card-price">$7.50</span><span class="card-size">12 oz</span></div>
+            <div class="menu-slide-price">
+              <span class="card-price">$7.50</span>
+              <span class="card-size">12 oz</span>
+              <button class="add-to-cart-inline" onclick="addToCartFromSlide(this)">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add to Cart
+              </button>
+            </div>
           </div>
         </div>
-        <div class="menu-slide">
+        <div class="menu-slide" data-name="Espresso" data-price="4.00" data-size="2 oz">
           <img src="img8.jpg" alt="Espresso" />
           <div class="menu-slide-info">
             <div class="menu-slide-left">
               <h3>Espresso</h3>
               <p>Double shot of our dark roast Yemeni Arabica — bold, earthy and smooth.</p>
             </div>
-            <div class="menu-slide-price"><span class="card-price">$4.00</span><span class="card-size">2 oz</span></div>
+            <div class="menu-slide-price">
+              <span class="card-price">$4.00</span>
+              <span class="card-size">2 oz</span>
+              <button class="add-to-cart-inline" onclick="addToCartFromSlide(this)">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add to Cart
+              </button>
+            </div>
           </div>
         </div>
-        <div class="menu-slide">
+        <div class="menu-slide" data-name="Latte" data-price="7.00" data-size="16 oz">
           <img src="img11.jpg" alt="Latte" />
           <div class="menu-slide-info">
             <div class="menu-slide-left">
               <h3>Latte</h3>
               <p>Smooth espresso with steamed milk and a delicate latte art finish.</p>
             </div>
-            <div class="menu-slide-price"><span class="card-price">$7.00</span><span class="card-size">16 oz</span></div>
+            <div class="menu-slide-price">
+              <span class="card-price">$7.00</span>
+              <span class="card-size">16 oz</span>
+              <button class="add-to-cart-inline" onclick="addToCartFromSlide(this)">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add to Cart
+              </button>
+            </div>
           </div>
         </div>
         <button class="ms-arrow ms-prev" data-slider="drinks">&#10094;</button>
         <button class="ms-arrow ms-next" data-slider="drinks">&#10095;</button>
         <div class="ms-dots" id="dots-drinks"></div>
       </div>
+      <div class="slide-below-btn">
+        <button class="add-to-cart-below" onclick="addCurrentToCart('drinks')">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          Add to Cart
+        </button>
+      </div>
     </div>
 
     <!-- PASTRIES SLIDER -->
     <div class="tab-content" id="tab-pastries">
       <div class="menu-slider-wrapper" id="slider-pastries">
-        <div class="menu-slide active">
+        <div class="menu-slide active" data-name="Pistachio Baklava" data-price="6.50" data-size="2 pcs">
           <img src="img9.jpg" alt="Pistachio Baklava" />
           <div class="menu-slide-info">
             <div class="menu-slide-left">
               <h3>Pistachio Baklava</h3>
               <p>House-made baklava soaked in fragrant rose water syrup. Crisp and sweet.</p>
             </div>
-            <div class="menu-slide-price"><span class="card-price">$6.50</span><span class="card-size">2 pcs</span></div>
+            <div class="menu-slide-price">
+              <span class="card-price">$6.50</span>
+              <span class="card-size">2 pcs</span>
+              <button class="add-to-cart-inline" onclick="addToCartFromSlide(this)">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add to Cart
+              </button>
+            </div>
           </div>
         </div>
-        <div class="menu-slide">
+        <div class="menu-slide" data-name="Honey Cake" data-price="5.50" data-size="Slice">
           <img src="img10.jpg" alt="Honey Cake" />
           <div class="menu-slide-info">
             <div class="menu-slide-left">
               <h3>Honey Cake</h3>
               <p>Layered Yemeni honey cake made with local sidr honey and warm spices.</p>
             </div>
-            <div class="menu-slide-price"><span class="card-price">$5.50</span><span class="card-size">Slice</span></div>
+            <div class="menu-slide-price">
+              <span class="card-price">$5.50</span>
+              <span class="card-size">Slice</span>
+              <button class="add-to-cart-inline" onclick="addToCartFromSlide(this)">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add to Cart
+              </button>
+            </div>
           </div>
         </div>
-        <div class="menu-slide">
+        <div class="menu-slide" data-name="Honeycomb Bread" data-price="5.75" data-size="Slice">
           <img src="img14.jpg" alt="Honeycomb Bread" />
           <div class="menu-slide-info">
             <div class="menu-slide-left">
               <h3>Honeycomb Bread</h3>
               <p>Soft, pull-apart bread drizzled with golden honey and a dusting of powdered sugar. Warm and indulgent.</p>
             </div>
-            <div class="menu-slide-price"><span class="card-price">$5.75</span><span class="card-size">Slice</span></div>
+            <div class="menu-slide-price">
+              <span class="card-price">$5.75</span>
+              <span class="card-size">Slice</span>
+              <button class="add-to-cart-inline" onclick="addToCartFromSlide(this)">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add to Cart
+              </button>
+            </div>
           </div>
         </div>
         <button class="ms-arrow ms-prev" data-slider="pastries">&#10094;</button>
         <button class="ms-arrow ms-next" data-slider="pastries">&#10095;</button>
         <div class="ms-dots" id="dots-pastries"></div>
+      </div>
+      <div class="slide-below-btn">
+        <button class="add-to-cart-below" onclick="addCurrentToCart('pastries')">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          Add to Cart
+        </button>
       </div>
     </div>
 
@@ -313,16 +443,112 @@ p{font-size:1.05rem;color:var(--text-secondary)}
 </footer>
 
 <script>
+/* ── CART STATE ── */
+let cart = [];
+const sliderCurrents = { drinks: 0, pastries: 0 };
+
+function getItem(name) { return cart.find(i => i.name === name); }
+
+function addToCart(name, price, size) {
+  const existing = getItem(name);
+  if (existing) existing.qty++;
+  else cart.push({ name, price: parseFloat(price), size, qty: 1 });
+  updateCartUI();
+  showToast('✓ ' + name + ' added to cart');
+}
+
+function changeQty(name, delta) {
+  const item = getItem(name);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) cart = cart.filter(i => i.name !== name);
+  updateCartUI();
+}
+
+function updateCartUI() {
+  const totalQty = cart.reduce((s, i) => s + i.qty, 0);
+  const totalPrice = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  const countEl = document.getElementById('cart-count');
+  countEl.textContent = totalQty;
+  countEl.classList.toggle('visible', totalQty > 0);
+  document.getElementById('cart-total').textContent = '$' + totalPrice.toFixed(2);
+
+  const itemsEl = document.getElementById('cart-items');
+  const emptyEl = document.getElementById('cart-empty');
+  Array.from(itemsEl.children).forEach(c => { if (c !== emptyEl) c.remove(); });
+
+  if (cart.length === 0) { emptyEl.style.display = 'block'; return; }
+  emptyEl.style.display = 'none';
+
+  cart.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `
+      <div class="cart-item-info">
+        <h4>${item.name}</h4>
+        <span>${item.size}</span>
+      </div>
+      <div class="cart-item-right">
+        <div class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</div>
+        <div class="cart-item-qty">
+          <button class="qty-btn" onclick="changeQty('${item.name}',-1)">−</button>
+          <span class="qty-num">${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty('${item.name}',1)">+</button>
+        </div>
+      </div>
+    `;
+    itemsEl.appendChild(div);
+  });
+}
+
+/* ── ADD FROM INLINE BUTTON ── */
+function addToCartFromSlide(btn) {
+  const slide = btn.closest('.menu-slide');
+  addToCart(slide.dataset.name, slide.dataset.price, slide.dataset.size);
+  btn.classList.add('added');
+  btn.innerHTML = '✓ Added';
+  setTimeout(() => {
+    btn.classList.remove('added');
+    btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add to Cart';
+  }, 1400);
+}
+
+/* ── ADD FROM BELOW BUTTON ── */
+function addCurrentToCart(name) {
+  const wrapper = document.getElementById('slider-' + name);
+  const slides = Array.from(wrapper.querySelectorAll('.menu-slide'));
+  const slide = slides[sliderCurrents[name]];
+  addToCart(slide.dataset.name, slide.dataset.price, slide.dataset.size);
+}
+
+/* ── TOAST ── */
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+/* ── CART OPEN / CLOSE ── */
+document.getElementById('cart-btn').addEventListener('click', () => {
+  document.getElementById('cart-drawer').classList.add('open');
+  document.getElementById('cart-overlay').classList.add('open');
+});
+function closeCart() {
+  document.getElementById('cart-drawer').classList.remove('open');
+  document.getElementById('cart-overlay').classList.remove('open');
+}
+document.getElementById('cart-close').addEventListener('click', closeCart);
+document.getElementById('cart-overlay').addEventListener('click', closeCart);
+
+/* ── HAMBURGER ── */
 const hbg = document.getElementById('hamburger');
 const nav = document.getElementById('nav-links');
-hbg.addEventListener('click', () => {
-  hbg.classList.toggle('active');
-  nav.classList.toggle('open');
-});
-nav.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => { hbg.classList.remove('active'); nav.classList.remove('open'); });
-});
+hbg.addEventListener('click', () => { hbg.classList.toggle('active'); nav.classList.toggle('open'); });
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hbg.classList.remove('active'); nav.classList.remove('open'); }));
 
+/* ── TABS ── */
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -332,29 +558,34 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
   });
 });
 
+/* ── SLIDER ── */
 function initSlider(name) {
   const wrapper = document.getElementById('slider-' + name);
   if (!wrapper) return;
   const slides = Array.from(wrapper.querySelectorAll('.menu-slide'));
   const dotsEl = document.getElementById('dots-' + name);
-  let current = 0;
+  sliderCurrents[name] = 0;
+
   slides.forEach((_, i) => {
     const d = document.createElement('button');
     d.className = 'ms-dot' + (i === 0 ? ' active' : '');
     d.addEventListener('click', () => goTo(i));
     dotsEl.appendChild(d);
   });
+
   function goTo(n) {
-    slides[current].classList.remove('active');
-    dotsEl.children[current].classList.remove('active');
-    current = (n + slides.length) % slides.length;
-    slides[current].classList.add('active');
-    dotsEl.children[current].classList.add('active');
+    slides[sliderCurrents[name]].classList.remove('active');
+    dotsEl.children[sliderCurrents[name]].classList.remove('active');
+    sliderCurrents[name] = (n + slides.length) % slides.length;
+    slides[sliderCurrents[name]].classList.add('active');
+    dotsEl.children[sliderCurrents[name]].classList.add('active');
   }
-  wrapper.querySelector('.ms-prev').addEventListener('click', () => goTo(current - 1));
-  wrapper.querySelector('.ms-next').addEventListener('click', () => goTo(current + 1));
-  setInterval(() => goTo(current + 1), 5000);
+
+  wrapper.querySelector('.ms-prev').addEventListener('click', () => goTo(sliderCurrents[name] - 1));
+  wrapper.querySelector('.ms-next').addEventListener('click', () => goTo(sliderCurrents[name] + 1));
+  setInterval(() => goTo(sliderCurrents[name] + 1), 5000);
 }
+
 initSlider('drinks');
 initSlider('pastries');
 </script>
