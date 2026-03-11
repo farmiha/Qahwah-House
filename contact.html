@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Qahwah House</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <input type="checkbox" id="nav-toggle" />
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">☕</span>
+        <span class="logo-text">Qahwah<span class="logo-accent">House</span></span>
+      </a>
+      <label class="hamburger" for="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </label>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+    <label class="nav-overlay" for="nav-toggle"></label>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <span class="section-label">Get in Touch</span>
+      <h1>Contact <em>Us</em></h1>
+      <p>We'd love to hear from you — visit us or send a message</p>
+    </div>
+  </section>
+
+  <section class="contact-section section-padding">
+    <div class="container">
+      <div class="contact-grid">
+
+        <div class="contact-form-wrapper">
+          <span class="section-label">Send a Message</span>
+          <h2>Let's <em>Connect</em></h2>
+          <p>Have a question, catering inquiry, or just want to say hello? We read every message and will get back to you within 24 hours.</p>
+
+          <form class="contact-form" action="#" method="post">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Your full name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject">
+                <option value="">Select a subject...</option>
+                <option value="general">General Inquiry</option>
+                <option value="catering">Catering & Events</option>
+                <option value="franchise">Franchise Info</option>
+                <option value="feedback">Feedback</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" placeholder="Tell us how we can help..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+          </form>
+        </div>
+
+        <div class="contact-info-wrapper">
+          <div class="contact-info-cards">
+            <div class="info-card">
+              <div class="info-icon">📍</div>
+              <h4>Visit Us</h4>
+              <p>162 Bedford Ave<br />Brooklyn, NY 11211</p>
+            </div>
+            <div class="info-card">
+              <div class="info-icon">✉️</div>
+              <h4>Email Us</h4>
+              <p><a href="mailto:coffee@qahwahhouse.com">coffee@qahwahhouse.com</a></p>
+            </div>
+            <div class="info-card">
+              <div class="info-icon">📞</div>
+              <h4>Call Us</h4>
+              <p><a href="tel:+13135551234">(313) 555-1234</a></p>
+            </div>
+            <div class="info-card">
+              <div class="info-icon">🕐</div>
+              <h4>Hours</h4>
+              <p>Mon–Thu: 7am–10pm<br />Fri: 7am–11pm<br />Sat: 8am–11pm<br />Sun: 8am–9pm</p>
+            </div>
+          </div>
+
+          <div class="map-container">
+            <iframe
+              title="Qahwah House Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.1!2d-73.9573!3d40.7182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25986a73a7f07%3A0x5cc0f8e5b1e4a1b0!2s162%20Bedford%20Ave%2C%20Brooklyn%2C%20NY%2011211!5e0!3m2!1sen!2sus!4v1709850000000!5m2!1sen!2sus"
+              width="100%"
+              height="350"
+              style="border:0; border-radius: 8px;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-icon">☕</span>
+            <span class="logo-text">Qahwah<span class="logo-accent">House</span></span>
+          </a>
+          <p>Eight generations of Yemeni coffee mastery.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/QahwahHouseWilliamsburg/" class="social-link" aria-label="Facebook">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/qahwah_house" class="social-link" aria-label="Instagram">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-nav">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-hours">
+          <h4>Business Hours</h4>
+          <ul class="hours-list">
+            <li><span>Monday – Thursday</span><span>7am – 10pm</span></li>
+            <li><span>Friday</span><span>7am – 11pm</span></li>
+            <li><span>Saturday</span><span>8am – 11pm</span></li>
+            <li><span>Sunday</span><span>8am – 9pm</span></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p>162 Bedford Ave<br />Brooklyn, NY 11211</p>
+          <p><a href="mailto:coffee@qahwahhouse.com">coffee@qahwahhouse.com</a></p>
+          <p><a href="tel:+13135551234">(313) 555-1234</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 Qahwah House. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Menu — Qahwah House</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root{--espresso:#1a0a02;--dark-roast:#2d1505;--amber:#c07b3a;--gold:#d4a853;--cream:#f5efe6;--warm-white:#faf6f0;--text-primary:#1a0a02;--text-secondary:#5c3a1e;--text-muted:#9b7355;--border:rgba(192,123,58,0.2);--border-strong:rgba(192,123,58,0.4);--fd:'Playfair Display',Georgia,serif;--fb:'Cormorant Garamond',Georgia,serif;--fu:'Jost',sans-serif;--nav:72px;--r:4px;--tr:0.3s cubic-bezier(.4,0,.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);font-size:18px;line-height:1.7;color:var(--text-primary);background:var(--warm-white);overflow-x:hidden}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}ul{list-style:none}
+h1,h2,h3,h4{font-family:var(--fd);line-height:1.2;font-weight:700}
+em{font-style:italic;color:var(--amber)}
+p{font-size:1.05rem;color:var(--text-secondary)}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.sp{padding:100px 0}
+.sl{display:inline-block;font-family:var(--fu);font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:16px}
+
+/* HEADER */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(26,10,2,.95);backdrop-filter:blur(12px);box-shadow:0 2px 24px rgba(0,0,0,.3)}
+.navbar{display:flex;align-items:center;justify-content:space-between;height:var(--nav);padding:0 40px;max-width:1400px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--fd);font-size:1.4rem;font-weight:700;color:var(--cream);z-index:1001}
+.logo-a{color:var(--amber)}
+.nav-links{display:flex;gap:40px;align-items:center}
+.nav-links a{font-family:var(--fu);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,239,230,.75);transition:color var(--tr);position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--amber);transition:width var(--tr)}
+.nav-links a:hover,.nav-links a.active{color:var(--cream)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:1100}
+.hamburger span{display:block;width:24px;height:1.5px;background:var(--cream);transition:all var(--tr)}
+.hamburger.active span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* PAGE HERO */
+.page-hero{background:linear-gradient(160deg,#1a0a02 0%,#2d1505 50%,#4a1a08 100%);min-height:380px;display:flex;align-items:flex-end;padding:80px 40px 60px;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 70%,rgba(192,123,58,.15) 0%,transparent 60%)}
+.phc{position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%}
+.phc .sl{display:block;margin-bottom:12px;color:var(--amber);font-family:var(--fu);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase}
+.phc h1{color:var(--cream);font-size:clamp(2.5rem,6vw,5rem);margin-bottom:16px}
+.phc p{color:rgba(245,239,230,.6);font-size:1.1rem;max-width:500px}
+
+/* TABS */
+.menu-section{background:var(--warm-white)}
+.menu-tabs{display:flex;margin-bottom:48px;border-bottom:1px solid var(--border);overflow-x:auto}
+.tab-btn{font-family:var(--fu);font-size:.8rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:16px 32px;border:none;background:transparent;color:var(--text-muted);cursor:pointer;transition:all var(--tr);border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.tab-btn:hover{color:var(--espresso)}
+.tab-btn.active{color:var(--amber);border-bottom-color:var(--amber)}
+.tab-content{display:none}.tab-content.active{display:block}
+
+/* MENU SLIDER */
+.menu-slider-wrapper{position:relative;width:100%;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(26,10,2,.15);background:var(--espresso)}
+.menu-slide{display:none;position:relative}
+.menu-slide.active{display:block}
+
+/* KEY FIX: contain so full image is visible, dark bg fills gaps */
+.menu-slide > img{
+  width:100%;
+  height:560px;
+  object-fit:contain;
+  object-position:center center;
+  display:block;
+  background:#1a0a02;
+}
+
+/* info bar */
+.menu-slide-info{position:absolute;bottom:0;left:0;right:0;background:rgba(26,10,2,.82);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:space-between;padding:24px 32px;gap:24px}
+.menu-slide-left{flex:1}
+.card-badge{display:inline-block;background:var(--amber);color:#fff;font-family:var(--fu);font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:3px 12px;border-radius:20px;margin-bottom:8px}
+.menu-slide-left h3{font-family:var(--fd);font-size:1.6rem;color:var(--cream);margin-bottom:6px}
+.menu-slide-left p{font-size:.95rem;color:rgba(245,239,230,.7);line-height:1.5}
+.menu-slide-price{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.card-price{font-family:var(--fd);font-size:2rem;font-weight:700;color:var(--amber)}
+.card-size{font-family:var(--fu);font-size:.7rem;letter-spacing:.1em;color:rgba(245,239,230,.5);text-transform:uppercase}
+
+/* arrows */
+.ms-arrow{position:absolute;top:42%;transform:translateY(-50%);background:rgba(26,10,2,.55);border:1px solid rgba(192,123,58,.5);color:var(--cream);width:52px;height:52px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s ease;z-index:10}
+.ms-arrow:hover{background:var(--amber);border-color:var(--amber)}
+.ms-prev{left:20px}.ms-next{right:20px}
+
+/* dots */
+.ms-dots{display:flex;justify-content:center;gap:8px;padding:16px 0 2px;background:var(--warm-white)}
+.ms-dot{width:8px;height:8px;border-radius:50%;background:var(--border-strong);border:none;cursor:pointer;transition:all .25s ease;padding:0}
+.ms-dot.active{background:var(--amber);width:28px;border-radius:4px}
+
+/* ADD-ONS */
+.addons-section{margin-top:64px;padding:40px;background:var(--cream);border-radius:8px;border:1px solid var(--border)}
+.addons-section h3{font-family:var(--fd);color:var(--espresso);margin-bottom:24px;font-size:1.4rem}
+.addons-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.addon-item{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border);font-size:.95rem;font-family:var(--fb);color:var(--text-secondary)}
+.addon-item span:last-child{font-family:var(--fd);font-weight:600;color:var(--amber)}
+
+/* FOOTER */
+.site-footer{background:var(--espresso)}
+.footer-top{padding:80px 0 60px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1.5fr 1.5fr;gap:48px}
+.footer-brand p{color:rgba(245,239,230,.5);font-size:.9rem;line-height:1.7;margin-bottom:24px;margin-top:16px}
+.footer-nav h4,.footer-hours h4,.footer-contact h4{font-family:var(--fu);font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:20px}
+.footer-nav ul{display:flex;flex-direction:column;gap:10px}
+.footer-nav a{font-family:var(--fu);font-size:.85rem;color:rgba(245,239,230,.55);transition:color var(--tr)}
+.footer-nav a:hover{color:var(--cream)}
+.hours-list{display:flex;flex-direction:column;gap:8px}
+.hours-list li{display:flex;justify-content:space-between;font-size:.85rem;color:rgba(245,239,230,.55);font-family:var(--fu)}
+.footer-contact p{font-size:.9rem;color:rgba(245,239,230,.55);margin-bottom:8px;line-height:1.6}
+.footer-bottom{border-top:1px solid rgba(192,123,58,.15);padding:24px 0}
+.footer-bottom p{text-align:center;font-family:var(--fu);font-size:.75rem;color:rgba(245,239,230,.3)}
+
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .nav-links{
+    position:fixed;top:0;right:-100%;bottom:0;
+    width:min(320px,80vw);
+    background:var(--espresso);
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+    padding:80px 48px;
+    gap:32px;
+    transition:right .4s cubic-bezier(.4,0,.2,1);
+    border-left:1px solid rgba(192,123,58,.2);
+    z-index:1000;
+    display:flex;
+  }
+  .nav-links.open{right:0}
+  .nav-links a{font-size:1.1rem}
+  .navbar{padding:0 20px}
+  .page-hero{padding:100px 20px 48px;min-height:280px}
+  .sp{padding:64px 0}
+  .menu-slide>img{height:360px}
+  .menu-slide-info{flex-direction:column;align-items:flex-start;padding:16px 20px;gap:8px}
+  .menu-slide-price{align-items:flex-start}
+  .ms-arrow{width:40px;height:40px;font-size:.9rem}
+  .addons-grid{grid-template-columns:1fr}
+  .addons-section{padding:24px}
+  .footer-grid{grid-template-columns:1fr;gap:32px}
+}
+@media(max-width:480px){.container{padding:0 16px}.menu-slide>img{height:240px}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar">
+    <a href="index.html" class="logo">☕ <span>Qahwah<span class="logo-a">House</span></span></a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html" class="active">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="phc">
+    <span class="sl">Explore</span>
+    <h1>Our <em>Menu</em></h1>
+    <p>From ancient Yemeni traditions to contemporary café creations</p>
+  </div>
+</section>
+
+<section class="menu-section sp">
+  <div class="container">
+
+    <div class="menu-tabs">
+      <button class="tab-btn active" data-tab="drinks">Drinks</button>
+      <button class="tab-btn" data-tab="pastries">Pastries</button>
+    </div>
+
+    <!-- DRINKS SLIDER -->
+    <div class="tab-content active" id="tab-drinks">
+      <div class="menu-slider-wrapper" id="slider-drinks">
+        <div class="menu-slide active">
+          <img src="img4.jpg" alt="Traditional Qahwah" />
+          <div class="menu-slide-info">
+            <div class="menu-slide-left">
+              <span class="card-badge">Signature</span>
+              <h3>Traditional Qahwah</h3>
+              <p>Ancient Yemeni spiced coffee with ginger, cardamom & saffron — served the original way.</p>
+            </div>
+            <div class="menu-slide-price"><span class="card-price">$6.50</span><span class="card-size">12 oz</span></div>
+          </div>
+        </div>
+        <div class="menu-slide">
+          <img src="img3.jpg" alt="Adeni Chai" />
+          <div class="menu-slide-info">
+            <div class="menu-slide-left">
+              <span class="card-badge">Signature</span>
+              <h3>Adeni Chai</h3>
+              <p>Yemeni black tea with cardamom, nutmeg & evaporated milk — famous worldwide.</p>
+            </div>
+            <div class="menu-slide-price"><span class="card-price">$7.00</span><span class="card-size">12 oz</span></div>
+          </div>
+        </div>
+        <div class="menu-slide">
+          <img src="img5.jpg" alt="Mofawar" />
+          <div class="menu-slide-info">
+            <div class="menu-slide-left">
+              <span class="card-badge">Traditional</span>
+              <h3>Mofawar</h3>
+              <p>Sana'ani blend with cream — a beloved Yemeni classic treasured for generations.</p>
+            </div>
+            <div class="menu-slide-price"><span class="card-price">$7.50</span><span class="card-size">12 oz</span></div>
+          </div>
+        </div>
+        <div class="menu-slide">
+          <img src="img7.jpg" alt="Sana'ani Coffee" />
+          <div class="menu-slide-info">
+            <div class="menu-slide-left">
+              <h3>Sana'ani Coffee</h3>
+              <p>Finely ground medium roast mixed with cardamom from Yemen's mountain capital.</p>
+            </div>
+            <div class="menu-slide-price"><span class="card-price">$7.50</span><span class="card-size">12 oz</span></div>
+          </div>
+        </div>
+        <div class="menu-slide">
+          <img src="img8.jpg" alt="Espresso" />
+          <div class="menu-slide-info">
+            <div class="menu-slide-left">
+              <h3>Espresso</h3>
+              <p>Double shot of our dark roast Yemeni Arabica — bold, earthy and smooth.</p>
+            </div>
+            <div class="menu-slide-price"><span class="card-price">$4.00</span><span class="card-size">2 oz</span></div>
+          </div>
+        </div>
+        <div class="menu-slide">
+          <img src="img11.jpg" alt="Latte" />
+          <div class="menu-slide-info">
+            <div class="menu-slide-left">
+              <h3>Latte</h3>
+              <p>Smooth espresso with steamed milk and a delicate latte art finish.</p>
+            </div>
+            <div class="menu-slide-price"><span class="card-price">$7.00</span><span class="card-size">16 oz</span></div>
+          </div>
+        </div>
+        <button class="ms-arrow ms-prev" data-slider="drinks">&#10094;</button>
+        <button class="ms-arrow ms-next" data-slider="drinks">&#10095;</button>
+        <div class="ms-dots" id="dots-drinks"></div>
+      </div>
+    </div>
+
+    <!-- PASTRIES SLIDER -->
+    <div class="tab-content" id="tab-pastries">
+      <div class="menu-slider-wrapper" id="slider-pastries">
+        <div class="menu-slide active">
+          <img src="img9.jpg" alt="Pistachio Baklava" />
+          <div class="menu-slide-info">
+            <div class="menu-slide-left">
+              <h3>Pistachio Baklava</h3>
+              <p>House-made baklava soaked in fragrant rose water syrup. Crisp and sweet.</p>
+            </div>
+            <div class="menu-slide-price"><span class="card-price">$6.50</span><span class="card-size">2 pcs</span></div>
+          </div>
+        </div>
+        <div class="menu-slide">
+          <img src="img10.jpg" alt="Honey Cake" />
+          <div class="menu-slide-info">
+            <div class="menu-slide-left">
+              <h3>Honey Cake</h3>
+              <p>Layered Yemeni honey cake made with local sidr honey and warm spices.</p>
+            </div>
+            <div class="menu-slide-price"><span class="card-price">$5.50</span><span class="card-size">Slice</span></div>
+          </div>
+        </div>
+        <button class="ms-arrow ms-prev" data-slider="pastries">&#10094;</button>
+        <button class="ms-arrow ms-next" data-slider="pastries">&#10095;</button>
+        <div class="ms-dots" id="dots-pastries"></div>
+      </div>
+    </div>
+
+    <!-- ADD-ONS -->
+    <div class="addons-section">
+      <h3>Add-Ons & Customizations</h3>
+      <div class="addons-grid">
+        <div class="addon-item"><span>Extra Shot Espresso</span><span>+$1.50</span></div>
+        <div class="addon-item"><span>Oat / Almond / Coconut Milk</span><span>+$0.75</span></div>
+        <div class="addon-item"><span>Cardamom Syrup</span><span>+$0.75</span></div>
+        <div class="addon-item"><span>Date Caramel Drizzle</span><span>+$0.75</span></div>
+        <div class="addon-item"><span>Cold Foam</span><span>+$1.00</span></div>
+        <div class="addon-item"><span>Rose Water</span><span>+$0.50</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-top"><div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">☕ <span>Qahwah<span class="logo-a">House</span></span></a>
+      <p>Eight generations of Yemeni coffee mastery.</p>
+    </div>
+    <div class="footer-nav"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="menu.html">Menu</a></li><li><a href="about.html">Our Story</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-hours"><h4>Business Hours</h4><ul class="hours-list"><li><span>Mon–Thu</span><span>7am–10pm</span></li><li><span>Friday</span><span>7am–11pm</span></li><li><span>Saturday</span><span>8am–11pm</span></li><li><span>Sunday</span><span>8am–9pm</span></li></ul></div>
+    <div class="footer-contact"><h4>Contact</h4><p>162 Bedford Ave<br/>Brooklyn, NY 11211</p></div>
+  </div></div>
+  <div class="footer-bottom"><div class="container"><p>© 2026 Qahwah House. All Rights Reserved.</p></div></div>
+</footer>
+
+<script>
+const hbg = document.getElementById('hamburger');
+const nav = document.getElementById('nav-links');
+hbg.addEventListener('click', () => {
+  hbg.classList.toggle('active');
+  nav.classList.toggle('open');
+});
+nav.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => { hbg.classList.remove('active'); nav.classList.remove('open'); });
+});
+
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+function initSlider(name) {
+  const wrapper = document.getElementById('slider-' + name);
+  if (!wrapper) return;
+  const slides = Array.from(wrapper.querySelectorAll('.menu-slide'));
+  const dotsEl = document.getElementById('dots-' + name);
+  let current = 0;
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'ms-dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(d);
+  });
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dotsEl.children[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dotsEl.children[current].classList.add('active');
+  }
+  wrapper.querySelector('.ms-prev').addEventListener('click', () => goTo(current - 1));
+  wrapper.querySelector('.ms-next').addEventListener('click', () => goTo(current + 1));
+  setInterval(() => goTo(current + 1), 5000);
+}
+initSlider('drinks');
+initSlider('pastries');
+</script>
+</body>
+</html>
