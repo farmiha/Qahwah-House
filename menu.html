@@ -19,7 +19,7 @@ p{font-size:1.05rem;color:var(--text-secondary)}
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
 .sp{padding:100px 0}
 .sl{display:inline-block;font-family:var(--fu);font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:16px}
-
+ 
 /* HEADER */
 .site-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(26,10,2,.95);backdrop-filter:blur(12px);box-shadow:0 2px 24px rgba(0,0,0,.3)}
 .navbar{display:flex;align-items:center;justify-content:space-between;height:var(--nav);padding:0 40px;max-width:1400px;margin:0 auto}
@@ -35,14 +35,14 @@ p{font-size:1.05rem;color:var(--text-secondary)}
 .hamburger.active span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
 .hamburger.active span:nth-child(2){opacity:0}
 .hamburger.active span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-
+ 
 /* CART ICON */
 .cart-btn{position:relative;background:none;border:1px solid rgba(192,123,58,.4);border-radius:6px;cursor:pointer;color:rgba(245,239,230,.85);display:flex;align-items:center;gap:8px;font-family:var(--fu);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;padding:8px 16px;transition:all var(--tr)}
 .cart-btn:hover{background:var(--amber);border-color:var(--amber);color:#fff}
 .cart-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0}
 .cart-count{background:var(--amber);color:#fff;font-family:var(--fu);font-size:.6rem;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(0);transition:all .25s cubic-bezier(.4,0,.2,1)}
 .cart-count.visible{opacity:1;transform:scale(1)}
-
+ 
 /* CART OVERLAY + DRAWER */
 .cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1200;opacity:0;pointer-events:none;transition:opacity .3s ease}
 .cart-overlay.open{opacity:1;pointer-events:all}
@@ -71,11 +71,11 @@ p{font-size:1.05rem;color:var(--text-secondary)}
 .cart-total span:last-child{font-family:var(--fd);font-size:1.7rem;font-weight:700;color:var(--espresso)}
 .checkout-btn{width:100%;padding:16px;background:var(--amber);color:#fff;border:none;border-radius:6px;font-family:var(--fu);font-size:.8rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:background .2s}
 .checkout-btn:hover{background:var(--dark-roast)}
-
+ 
 /* TOAST */
 .toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--espresso);color:var(--cream);font-family:var(--fu);font-size:.75rem;letter-spacing:.1em;padding:11px 24px;border-radius:40px;border:1px solid rgba(192,123,58,.4);opacity:0;pointer-events:none;transition:all .3s ease;z-index:2000;white-space:nowrap}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
+ 
 /* PAGE HERO */
 .page-hero{background:linear-gradient(160deg,#1a0a02 0%,#2d1505 50%,#4a1a08 100%);min-height:380px;display:flex;align-items:flex-end;padding:80px 40px 60px;position:relative;overflow:hidden}
 .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 70%,rgba(192,123,58,.15) 0%,transparent 60%)}
@@ -83,7 +83,7 @@ p{font-size:1.05rem;color:var(--text-secondary)}
 .phc .sl{display:block;margin-bottom:12px;color:var(--amber);font-family:var(--fu);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase}
 .phc h1{color:var(--cream);font-size:clamp(2.5rem,6vw,5rem);margin-bottom:16px}
 .phc p{color:rgba(245,239,230,.6);font-size:1.1rem;max-width:500px}
-
+ 
 /* TABS */
 .menu-section{background:var(--warm-white)}
 .menu-tabs{display:flex;margin-bottom:48px;border-bottom:1px solid var(--border);overflow-x:auto}
@@ -91,14 +91,14 @@ p{font-size:1.05rem;color:var(--text-secondary)}
 .tab-btn:hover{color:var(--espresso)}
 .tab-btn.active{color:var(--amber);border-bottom-color:var(--amber)}
 .tab-content{display:none}.tab-content.active{display:block}
-
+ 
 /* MENU SLIDER */
 .menu-slider-wrapper{position:relative;width:100%;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(26,10,2,.15);background:var(--espresso)}
 .menu-slide{display:none;position:relative}
 .menu-slide.active{display:block}
 .menu-slide > img{width:100%;height:560px;object-fit:contain;object-position:center center;display:block;background:#1a0a02;}
-
-/* info bar */
+ 
+/* info bar — desktop: absolute overlay at bottom */
 .menu-slide-info{position:absolute;bottom:0;left:0;right:0;background:rgba(26,10,2,.82);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:space-between;padding:24px 32px;gap:24px}
 .menu-slide-left{flex:1}
 .card-badge{display:inline-block;background:var(--amber);color:#fff;font-family:var(--fu);font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:3px 12px;border-radius:20px;margin-bottom:8px}
@@ -107,7 +107,7 @@ p{font-size:1.05rem;color:var(--text-secondary)}
 .menu-slide-price{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0}
 .card-price{font-family:var(--fd);font-size:2rem;font-weight:700;color:var(--amber)}
 .card-size{font-family:var(--fu);font-size:.7rem;letter-spacing:.1em;color:rgba(245,239,230,.5);text-transform:uppercase}
-
+ 
 /* ADD TO CART — inline (inside slide) */
 .add-to-cart-inline{background:var(--amber);color:#fff;border:none;border-radius:6px;font-family:var(--fu);font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:9px 16px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px;white-space:nowrap}
 .add-to-cart-inline:hover{background:#fff;color:var(--amber)}
@@ -115,30 +115,30 @@ p{font-size:1.05rem;color:var(--text-secondary)}
 .add-to-cart-inline.added{background:#2d6a4f}
 @keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
 .add-to-cart-inline.added{animation:pop .25s ease}
-
+ 
 /* ADD TO CART — below slider */
 .slide-below-btn{display:flex;justify-content:center;padding:20px 0 4px;background:var(--warm-white)}
 .add-to-cart-below{background:transparent;color:var(--amber);border:1.5px solid var(--amber);border-radius:6px;font-family:var(--fu);font-size:.75rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;padding:13px 36px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:10px}
 .add-to-cart-below:hover{background:var(--amber);color:#fff}
 .add-to-cart-below svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8}
-
+ 
 /* arrows */
 .ms-arrow{position:absolute;top:42%;transform:translateY(-50%);background:rgba(26,10,2,.55);border:1px solid rgba(192,123,58,.5);color:var(--cream);width:52px;height:52px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s ease;z-index:10}
 .ms-arrow:hover{background:var(--amber);border-color:var(--amber)}
 .ms-prev{left:20px}.ms-next{right:20px}
-
+ 
 /* dots */
 .ms-dots{display:flex;justify-content:center;gap:8px;padding:16px 0 2px;background:var(--warm-white)}
 .ms-dot{width:8px;height:8px;border-radius:50%;background:var(--border-strong);border:none;cursor:pointer;transition:all .25s ease;padding:0}
 .ms-dot.active{background:var(--amber);width:28px;border-radius:4px}
-
+ 
 /* ADD-ONS */
 .addons-section{margin-top:64px;padding:40px;background:var(--cream);border-radius:8px;border:1px solid var(--border)}
 .addons-section h3{font-family:var(--fd);color:var(--espresso);margin-bottom:24px;font-size:1.4rem}
 .addons-grid{display:grid;grid-template-columns:repeat(3,1fr)}
 .addon-item{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border);font-size:.95rem;font-family:var(--fb);color:var(--text-secondary)}
 .addon-item span:last-child{font-family:var(--fd);font-weight:600;color:var(--amber)}
-
+ 
 /* FOOTER */
 .site-footer{background:var(--espresso)}
 .footer-top{padding:80px 0 60px}
@@ -153,7 +153,8 @@ p{font-size:1.05rem;color:var(--text-secondary)}
 .footer-contact p{font-size:.9rem;color:rgba(245,239,230,.55);margin-bottom:8px;line-height:1.6}
 .footer-bottom{border-top:1px solid rgba(192,123,58,.15);padding:24px 0}
 .footer-bottom p{text-align:center;font-family:var(--fu);font-size:.75rem;color:rgba(245,239,230,.3)}
-
+ 
+/* ── MOBILE FIXES ── */
 @media(max-width:768px){
   .hamburger{display:flex}
   .nav-links{position:fixed;top:0;right:-100%;bottom:0;width:min(320px,80vw);background:var(--espresso);flex-direction:column;justify-content:center;align-items:flex-start;padding:80px 48px;gap:32px;transition:right .4s cubic-bezier(.4,0,.2,1);border-left:1px solid rgba(192,123,58,.2);z-index:1000;display:flex;}
@@ -162,19 +163,64 @@ p{font-size:1.05rem;color:var(--text-secondary)}
   .navbar{padding:0 20px}
   .page-hero{padding:100px 20px 48px;min-height:280px}
   .sp{padding:64px 0}
-  .menu-slide>img{height:360px}
-  .menu-slide-info{flex-direction:column;align-items:flex-start;padding:16px 20px;gap:8px}
-  .menu-slide-price{align-items:flex-start}
-  .ms-arrow{width:40px;height:40px;font-size:.9rem}
+ 
+  /* KEY FIX: on mobile the slide becomes a column — image on top, info below */
+  .menu-slider-wrapper{border-radius:10px}
+  .menu-slide{display:none;position:relative;flex-direction:column}
+  .menu-slide.active{display:flex}
+ 
+  .menu-slide > img{
+    width:100%;
+    height:260px;          /* visible image area */
+    object-fit:cover;
+    object-position:center;
+    flex-shrink:0;
+  }
+ 
+  /* info bar: now static below the image, not absolute overlay */
+  .menu-slide-info{
+    position:static;       /* ← removes the overlay */
+    flex-direction:column;
+    align-items:flex-start;
+    padding:18px 20px 20px;
+    gap:12px;
+    background:var(--espresso);
+  }
+ 
+  .menu-slide-price{
+    align-items:flex-start;
+    flex-direction:row;
+    flex-wrap:wrap;
+    gap:10px 16px;
+    width:100%;
+  }
+ 
+  .card-price{font-size:1.5rem}
+ 
+  /* arrows: position relative to the image only */
+  .ms-arrow{
+    top:130px; /* ~half of the 260px image */
+    width:38px;
+    height:38px;
+    font-size:.85rem;
+  }
+  .ms-prev{left:10px}
+  .ms-next{right:10px}
+ 
   .addons-grid{grid-template-columns:1fr}
   .addons-section{padding:24px}
   .footer-grid{grid-template-columns:1fr;gap:32px}
 }
-@media(max-width:480px){.container{padding:0 16px}.menu-slide>img{height:240px}}
+ 
+@media(max-width:480px){
+  .container{padding:0 16px}
+  .menu-slide > img{height:220px}
+  .ms-arrow{top:110px}
+}
 </style>
 </head>
 <body>
-
+ 
 <header class="site-header">
   <nav class="navbar">
     <a href="index.html" class="logo">☕ <span>Qahwah<span class="logo-a">House</span></span></a>
@@ -192,10 +238,10 @@ p{font-size:1.05rem;color:var(--text-secondary)}
     </button>
   </nav>
 </header>
-
+ 
 <!-- CART OVERLAY -->
 <div class="cart-overlay" id="cart-overlay"></div>
-
+ 
 <!-- CART DRAWER -->
 <div class="cart-drawer" id="cart-drawer">
   <div class="cart-header">
@@ -216,10 +262,10 @@ p{font-size:1.05rem;color:var(--text-secondary)}
     <button class="checkout-btn">Proceed to Checkout</button>
   </div>
 </div>
-
+ 
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
-
+ 
 <section class="page-hero">
   <div class="phc">
     <span class="sl">Explore</span>
@@ -227,15 +273,15 @@ p{font-size:1.05rem;color:var(--text-secondary)}
     <p>From ancient Yemeni traditions to contemporary café creations</p>
   </div>
 </section>
-
+ 
 <section class="menu-section sp">
   <div class="container">
-
+ 
     <div class="menu-tabs">
       <button class="tab-btn active" data-tab="drinks">Drinks</button>
       <button class="tab-btn" data-tab="pastries">Pastries</button>
     </div>
-
+ 
     <!-- DRINKS SLIDER -->
     <div class="tab-content active" id="tab-drinks">
       <div class="menu-slider-wrapper" id="slider-drinks">
@@ -349,7 +395,7 @@ p{font-size:1.05rem;color:var(--text-secondary)}
         </button>
       </div>
     </div>
-
+ 
     <!-- PASTRIES SLIDER -->
     <div class="tab-content" id="tab-pastries">
       <div class="menu-slider-wrapper" id="slider-pastries">
@@ -412,7 +458,7 @@ p{font-size:1.05rem;color:var(--text-secondary)}
         </button>
       </div>
     </div>
-
+ 
     <!-- ADD-ONS -->
     <div class="addons-section">
       <h3>Add-Ons & Customizations</h3>
@@ -425,10 +471,10 @@ p{font-size:1.05rem;color:var(--text-secondary)}
         <div class="addon-item"><span>Rose Water</span><span>+$0.50</span></div>
       </div>
     </div>
-
+ 
   </div>
 </section>
-
+ 
 <footer class="site-footer">
   <div class="footer-top"><div class="container footer-grid">
     <div class="footer-brand">
@@ -441,14 +487,14 @@ p{font-size:1.05rem;color:var(--text-secondary)}
   </div></div>
   <div class="footer-bottom"><div class="container"><p>© 2026 Qahwah House. All Rights Reserved.</p></div></div>
 </footer>
-
+ 
 <script>
 /* ── CART STATE ── */
 let cart = [];
 const sliderCurrents = { drinks: 0, pastries: 0 };
-
+ 
 function getItem(name) { return cart.find(i => i.name === name); }
-
+ 
 function addToCart(name, price, size) {
   const existing = getItem(name);
   if (existing) existing.qty++;
@@ -456,7 +502,7 @@ function addToCart(name, price, size) {
   updateCartUI();
   showToast('✓ ' + name + ' added to cart');
 }
-
+ 
 function changeQty(name, delta) {
   const item = getItem(name);
   if (!item) return;
@@ -464,7 +510,7 @@ function changeQty(name, delta) {
   if (item.qty <= 0) cart = cart.filter(i => i.name !== name);
   updateCartUI();
 }
-
+ 
 function updateCartUI() {
   const totalQty = cart.reduce((s, i) => s + i.qty, 0);
   const totalPrice = cart.reduce((s, i) => s + i.price * i.qty, 0);
@@ -472,14 +518,14 @@ function updateCartUI() {
   countEl.textContent = totalQty;
   countEl.classList.toggle('visible', totalQty > 0);
   document.getElementById('cart-total').textContent = '$' + totalPrice.toFixed(2);
-
+ 
   const itemsEl = document.getElementById('cart-items');
   const emptyEl = document.getElementById('cart-empty');
   Array.from(itemsEl.children).forEach(c => { if (c !== emptyEl) c.remove(); });
-
+ 
   if (cart.length === 0) { emptyEl.style.display = 'block'; return; }
   emptyEl.style.display = 'none';
-
+ 
   cart.forEach(item => {
     const div = document.createElement('div');
     div.className = 'cart-item';
@@ -500,7 +546,7 @@ function updateCartUI() {
     itemsEl.appendChild(div);
   });
 }
-
+ 
 /* ── ADD FROM INLINE BUTTON ── */
 function addToCartFromSlide(btn) {
   const slide = btn.closest('.menu-slide');
@@ -512,7 +558,7 @@ function addToCartFromSlide(btn) {
     btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add to Cart';
   }, 1400);
 }
-
+ 
 /* ── ADD FROM BELOW BUTTON ── */
 function addCurrentToCart(name) {
   const wrapper = document.getElementById('slider-' + name);
@@ -520,7 +566,7 @@ function addCurrentToCart(name) {
   const slide = slides[sliderCurrents[name]];
   addToCart(slide.dataset.name, slide.dataset.price, slide.dataset.size);
 }
-
+ 
 /* ── TOAST ── */
 function showToast(msg) {
   const t = document.getElementById('toast');
@@ -529,7 +575,7 @@ function showToast(msg) {
   clearTimeout(t._timer);
   t._timer = setTimeout(() => t.classList.remove('show'), 2200);
 }
-
+ 
 /* ── CART OPEN / CLOSE ── */
 document.getElementById('cart-btn').addEventListener('click', () => {
   document.getElementById('cart-drawer').classList.add('open');
@@ -541,13 +587,13 @@ function closeCart() {
 }
 document.getElementById('cart-close').addEventListener('click', closeCart);
 document.getElementById('cart-overlay').addEventListener('click', closeCart);
-
+ 
 /* ── HAMBURGER ── */
 const hbg = document.getElementById('hamburger');
 const nav = document.getElementById('nav-links');
 hbg.addEventListener('click', () => { hbg.classList.toggle('active'); nav.classList.toggle('open'); });
 nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hbg.classList.remove('active'); nav.classList.remove('open'); }));
-
+ 
 /* ── TABS ── */
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -557,7 +603,7 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
   });
 });
-
+ 
 /* ── SLIDER ── */
 function initSlider(name) {
   const wrapper = document.getElementById('slider-' + name);
@@ -565,14 +611,14 @@ function initSlider(name) {
   const slides = Array.from(wrapper.querySelectorAll('.menu-slide'));
   const dotsEl = document.getElementById('dots-' + name);
   sliderCurrents[name] = 0;
-
+ 
   slides.forEach((_, i) => {
     const d = document.createElement('button');
     d.className = 'ms-dot' + (i === 0 ? ' active' : '');
     d.addEventListener('click', () => goTo(i));
     dotsEl.appendChild(d);
   });
-
+ 
   function goTo(n) {
     slides[sliderCurrents[name]].classList.remove('active');
     dotsEl.children[sliderCurrents[name]].classList.remove('active');
@@ -580,12 +626,12 @@ function initSlider(name) {
     slides[sliderCurrents[name]].classList.add('active');
     dotsEl.children[sliderCurrents[name]].classList.add('active');
   }
-
+ 
   wrapper.querySelector('.ms-prev').addEventListener('click', () => goTo(sliderCurrents[name] - 1));
   wrapper.querySelector('.ms-next').addEventListener('click', () => goTo(sliderCurrents[name] + 1));
   setInterval(() => goTo(sliderCurrents[name] + 1), 5000);
 }
-
+ 
 initSlider('drinks');
 initSlider('pastries');
 </script>
