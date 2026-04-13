@@ -116,12 +116,6 @@ p{font-size:1.05rem;color:var(--text-secondary)}
 @keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
 .add-to-cart-inline.added{animation:pop .25s ease}
  
-/* ADD TO CART — below slider */
-.slide-below-btn{display:flex;justify-content:center;padding:20px 0 4px;background:var(--warm-white)}
-.add-to-cart-below{background:transparent;color:var(--amber);border:1.5px solid var(--amber);border-radius:6px;font-family:var(--fu);font-size:.75rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;padding:13px 36px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:10px}
-.add-to-cart-below:hover{background:var(--amber);color:#fff}
-.add-to-cart-below svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8}
- 
 /* arrows */
 .ms-arrow{position:absolute;top:42%;transform:translateY(-50%);background:rgba(26,10,2,.55);border:1px solid rgba(192,123,58,.5);color:var(--cream);width:52px;height:52px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s ease;z-index:10}
 .ms-arrow:hover{background:var(--amber);border-color:var(--amber)}
@@ -131,7 +125,27 @@ p{font-size:1.05rem;color:var(--text-secondary)}
 .ms-dots{display:flex;justify-content:center;gap:8px;padding:16px 0 2px;background:var(--warm-white)}
 .ms-dot{width:8px;height:8px;border-radius:50%;background:var(--border-strong);border:none;cursor:pointer;transition:all .25s ease;padding:0}
 .ms-dot.active{background:var(--amber);width:28px;border-radius:4px}
- 
+
+/* ── FULL MENU GRID ── */
+.menu-grid-section{margin-top:48px}
+.menu-grid-label{font-family:var(--fu);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.menu-grid-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.menu-card{background:var(--cream);border:1px solid var(--border);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .25s,transform .25s}
+.menu-card:hover{box-shadow:0 8px 32px rgba(26,10,2,.12);transform:translateY(-2px)}
+.menu-card-img{width:100%;height:160px;object-fit:cover;display:block}
+.menu-card-body{padding:16px 18px 18px;flex:1;display:flex;flex-direction:column;gap:6px}
+.menu-card-badge{display:inline-block;background:var(--amber);color:#fff;font-family:var(--fu);font-size:.55rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:2px 10px;border-radius:20px;width:fit-content}
+.menu-card-name{font-family:var(--fd);font-size:1.05rem;color:var(--espresso);line-height:1.3}
+.menu-card-desc{font-size:.82rem;color:var(--text-muted);line-height:1.5;flex:1;font-family:var(--fu)}
+.menu-card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:12px;gap:8px}
+.menu-card-price{font-family:var(--fd);font-size:1.2rem;font-weight:700;color:var(--amber)}
+.menu-card-size{font-family:var(--fu);font-size:.65rem;letter-spacing:.08em;color:var(--text-muted);text-transform:uppercase}
+.menu-card-add{background:var(--amber);color:#fff;border:none;border-radius:6px;font-family:var(--fu);font-size:.65rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:5px;white-space:nowrap;flex-shrink:0}
+.menu-card-add:hover{background:var(--espresso)}
+.menu-card-add svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.5}
+.menu-card-add.added{background:#2d6a4f;animation:pop .25s ease}
+
 /* ADD-ONS */
 .addons-section{margin-top:64px;padding:40px;background:var(--cream);border-radius:8px;border:1px solid var(--border)}
 .addons-section h3{font-family:var(--fd);color:var(--espresso);margin-bottom:24px;font-size:1.4rem}
@@ -164,49 +178,19 @@ p{font-size:1.05rem;color:var(--text-secondary)}
   .page-hero{padding:100px 20px 48px;min-height:280px}
   .sp{padding:64px 0}
  
-  /* KEY FIX: on mobile the slide becomes a column — image on top, info below */
   .menu-slider-wrapper{border-radius:10px}
   .menu-slide{display:none;position:relative;flex-direction:column}
   .menu-slide.active{display:flex}
- 
-  .menu-slide > img{
-    width:100%;
-    height:260px;          /* visible image area */
-    object-fit:cover;
-    object-position:center;
-    flex-shrink:0;
-  }
- 
-  /* info bar: now static below the image, not absolute overlay */
-  .menu-slide-info{
-    position:static;       /* ← removes the overlay */
-    flex-direction:column;
-    align-items:flex-start;
-    padding:18px 20px 20px;
-    gap:12px;
-    background:var(--espresso);
-  }
- 
-  .menu-slide-price{
-    align-items:flex-start;
-    flex-direction:row;
-    flex-wrap:wrap;
-    gap:10px 16px;
-    width:100%;
-  }
- 
+  .menu-slide > img{width:100%;height:260px;object-fit:cover;object-position:center;flex-shrink:0}
+  .menu-slide-info{position:static;flex-direction:column;align-items:flex-start;padding:18px 20px 20px;gap:12px;background:var(--espresso)}
+  .menu-slide-price{align-items:flex-start;flex-direction:row;flex-wrap:wrap;gap:10px 16px;width:100%}
   .card-price{font-size:1.5rem}
- 
-  /* arrows: position relative to the image only */
-  .ms-arrow{
-    top:130px; /* ~half of the 260px image */
-    width:38px;
-    height:38px;
-    font-size:.85rem;
-  }
-  .ms-prev{left:10px}
-  .ms-next{right:10px}
- 
+  .ms-arrow{top:130px;width:38px;height:38px;font-size:.85rem}
+  .ms-prev{left:10px}.ms-next{right:10px}
+
+  .menu-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .menu-card-img{height:120px}
+
   .addons-grid{grid-template-columns:1fr}
   .addons-section{padding:24px}
   .footer-grid{grid-template-columns:1fr;gap:32px}
@@ -216,6 +200,7 @@ p{font-size:1.05rem;color:var(--text-secondary)}
   .container{padding:0 16px}
   .menu-slide > img{height:220px}
   .ms-arrow{top:110px}
+  .menu-grid{grid-template-columns:1fr}
 }
  
 /* CHECKOUT MODAL */
@@ -237,7 +222,6 @@ p{font-size:1.05rem;color:var(--text-secondary)}
 .modal-field label{font-family:var(--fu);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:5px}
 .modal-form input,.modal-form select{width:100%;padding:12px 16px;border:1px solid var(--border-strong);border-radius:6px;font-family:var(--fu);font-size:.85rem;background:var(--cream);color:var(--text-primary);outline:none;transition:border-color .2s}
 .modal-form input:focus,.modal-form select:focus{border-color:var(--amber)}
-.modal-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .place-order-btn{width:100%;padding:16px;background:var(--amber);color:#fff;border:none;border-radius:6px;font-family:var(--fu);font-size:.8rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:background .2s;margin-top:8px}
 .place-order-btn:hover{background:var(--dark-roast)}
 .order-success{text-align:center;padding:48px 20px}
@@ -266,10 +250,7 @@ p{font-size:1.05rem;color:var(--text-secondary)}
   </nav>
 </header>
  
-<!-- CART OVERLAY -->
 <div class="cart-overlay" id="cart-overlay"></div>
- 
-<!-- CART DRAWER -->
 <div class="cart-drawer" id="cart-drawer">
   <div class="cart-header">
     <h2>Your Cart</h2>
@@ -290,19 +271,15 @@ p{font-size:1.05rem;color:var(--text-secondary)}
   </div>
 </div>
  
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
  
-<!-- CHECKOUT MODAL -->
 <div class="modal-overlay" id="modal-overlay">
   <div class="modal" id="checkout-modal">
     <div class="modal-head">
       <h2>Checkout</h2>
       <button class="modal-x" id="modal-close">✕</button>
     </div>
-    <div class="modal-body" id="modal-body">
-      <!-- filled by JS -->
-    </div>
+    <div class="modal-body" id="modal-body"></div>
   </div>
 </div>
  
@@ -322,8 +299,9 @@ p{font-size:1.05rem;color:var(--text-secondary)}
       <button class="tab-btn" data-tab="pastries">Pastries</button>
     </div>
  
-    <!-- DRINKS SLIDER -->
+    <!-- DRINKS TAB -->
     <div class="tab-content active" id="tab-drinks">
+      <!-- Slider -->
       <div class="menu-slider-wrapper" id="slider-drinks">
         <div class="menu-slide active" data-name="Traditional Qahwah" data-price="6.50" data-size="12 oz">
           <img src="img4.jpg" alt="Traditional Qahwah" />
@@ -428,16 +406,117 @@ p{font-size:1.05rem;color:var(--text-secondary)}
         <button class="ms-arrow ms-next" data-slider="drinks">&#10095;</button>
         <div class="ms-dots" id="dots-drinks"></div>
       </div>
-      <div class="slide-below-btn">
-        <button class="add-to-cart-below" onclick="addCurrentToCart('drinks')">
-          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-          Add to Cart
-        </button>
+
+      <!-- Full drinks grid — every item always accessible -->
+      <div class="menu-grid-section">
+        <p class="menu-grid-label">All Drinks</p>
+        <div class="menu-grid">
+          <div class="menu-card">
+            <img class="menu-card-img" src="img4.jpg" alt="Traditional Qahwah" />
+            <div class="menu-card-body">
+              <span class="menu-card-badge">Signature</span>
+              <div class="menu-card-name">Traditional Qahwah</div>
+              <div class="menu-card-desc">Ancient Yemeni spiced coffee with ginger, cardamom & saffron.</div>
+              <div class="menu-card-footer">
+                <div>
+                  <div class="menu-card-price">$6.50</div>
+                  <div class="menu-card-size">12 oz</div>
+                </div>
+                <button class="menu-card-add" onclick="addToCartFromCard(this,'Traditional Qahwah','6.50','12 oz')">
+                  <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <img class="menu-card-img" src="img3.jpg" alt="Adeni Chai" />
+            <div class="menu-card-body">
+              <span class="menu-card-badge">Signature</span>
+              <div class="menu-card-name">Adeni Chai</div>
+              <div class="menu-card-desc">Yemeni black tea with cardamom, nutmeg & evaporated milk.</div>
+              <div class="menu-card-footer">
+                <div>
+                  <div class="menu-card-price">$7.00</div>
+                  <div class="menu-card-size">12 oz</div>
+                </div>
+                <button class="menu-card-add" onclick="addToCartFromCard(this,'Adeni Chai','7.00','12 oz')">
+                  <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <img class="menu-card-img" src="img5.jpg" alt="Mofawar" />
+            <div class="menu-card-body">
+              <span class="menu-card-badge">Traditional</span>
+              <div class="menu-card-name">Mofawar</div>
+              <div class="menu-card-desc">Sana'ani blend with cream — a beloved Yemeni classic.</div>
+              <div class="menu-card-footer">
+                <div>
+                  <div class="menu-card-price">$7.50</div>
+                  <div class="menu-card-size">12 oz</div>
+                </div>
+                <button class="menu-card-add" onclick="addToCartFromCard(this,'Mofawar','7.50','12 oz')">
+                  <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <img class="menu-card-img" src="img7.jpg" alt="Sana'ani Coffee" />
+            <div class="menu-card-body">
+              <div class="menu-card-name">Sana'ani Coffee</div>
+              <div class="menu-card-desc">Medium roast with cardamom from Yemen's mountain capital.</div>
+              <div class="menu-card-footer">
+                <div>
+                  <div class="menu-card-price">$7.50</div>
+                  <div class="menu-card-size">12 oz</div>
+                </div>
+                <button class="menu-card-add" onclick="addToCartFromCard(this,&quot;Sana'ani Coffee&quot;,'7.50','12 oz')">
+                  <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <img class="menu-card-img" src="img8.jpg" alt="Espresso" />
+            <div class="menu-card-body">
+              <div class="menu-card-name">Espresso</div>
+              <div class="menu-card-desc">Double shot of dark roast Yemeni Arabica — bold and smooth.</div>
+              <div class="menu-card-footer">
+                <div>
+                  <div class="menu-card-price">$4.00</div>
+                  <div class="menu-card-size">2 oz</div>
+                </div>
+                <button class="menu-card-add" onclick="addToCartFromCard(this,'Espresso','4.00','2 oz')">
+                  <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <img class="menu-card-img" src="img11.jpg" alt="Latte" />
+            <div class="menu-card-body">
+              <div class="menu-card-name">Latte</div>
+              <div class="menu-card-desc">Smooth espresso with steamed milk and latte art finish.</div>
+              <div class="menu-card-footer">
+                <div>
+                  <div class="menu-card-price">$7.00</div>
+                  <div class="menu-card-size">16 oz</div>
+                </div>
+                <button class="menu-card-add" onclick="addToCartFromCard(this,'Latte','7.00','16 oz')">
+                  <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
  
-    <!-- PASTRIES SLIDER -->
+    <!-- PASTRIES TAB -->
     <div class="tab-content" id="tab-pastries">
+      <!-- Slider -->
       <div class="menu-slider-wrapper" id="slider-pastries">
         <div class="menu-slide active" data-name="Pistachio Baklava" data-price="6.50" data-size="2 pcs">
           <img src="img9.jpg" alt="Pistachio Baklava" />
@@ -476,7 +555,7 @@ p{font-size:1.05rem;color:var(--text-secondary)}
           <div class="menu-slide-info">
             <div class="menu-slide-left">
               <h3>Honeycomb Bread</h3>
-              <p>Soft, pull-apart bread drizzled with golden honey and a dusting of powdered sugar. Warm and indulgent.</p>
+              <p>Soft, pull-apart bread drizzled with golden honey and powdered sugar.</p>
             </div>
             <div class="menu-slide-price">
               <span class="card-price">$5.75</span>
@@ -491,11 +570,60 @@ p{font-size:1.05rem;color:var(--text-secondary)}
         <button class="ms-arrow ms-next" data-slider="pastries">&#10095;</button>
         <div class="ms-dots" id="dots-pastries"></div>
       </div>
-      <div class="slide-below-btn">
-        <button class="add-to-cart-below" onclick="addCurrentToCart('pastries')">
-          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-          Add to Cart
-        </button>
+
+      <!-- Full pastries grid -->
+      <div class="menu-grid-section">
+        <p class="menu-grid-label">All Pastries</p>
+        <div class="menu-grid">
+          <div class="menu-card">
+            <img class="menu-card-img" src="img9.jpg" alt="Pistachio Baklava" />
+            <div class="menu-card-body">
+              <div class="menu-card-name">Pistachio Baklava</div>
+              <div class="menu-card-desc">House-made baklava soaked in fragrant rose water syrup. Crisp and sweet.</div>
+              <div class="menu-card-footer">
+                <div>
+                  <div class="menu-card-price">$6.50</div>
+                  <div class="menu-card-size">2 pcs</div>
+                </div>
+                <button class="menu-card-add" onclick="addToCartFromCard(this,'Pistachio Baklava','6.50','2 pcs')">
+                  <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <img class="menu-card-img" src="img10.jpg" alt="Honey Cake" />
+            <div class="menu-card-body">
+              <div class="menu-card-name">Honey Cake</div>
+              <div class="menu-card-desc">Layered Yemeni honey cake with local sidr honey and warm spices.</div>
+              <div class="menu-card-footer">
+                <div>
+                  <div class="menu-card-price">$5.50</div>
+                  <div class="menu-card-size">Slice</div>
+                </div>
+                <button class="menu-card-add" onclick="addToCartFromCard(this,'Honey Cake','5.50','Slice')">
+                  <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <img class="menu-card-img" src="img14.jpg" alt="Honeycomb Bread" />
+            <div class="menu-card-body">
+              <div class="menu-card-name">Honeycomb Bread</div>
+              <div class="menu-card-desc">Soft, pull-apart bread drizzled with golden honey and powdered sugar.</div>
+              <div class="menu-card-footer">
+                <div>
+                  <div class="menu-card-price">$5.75</div>
+                  <div class="menu-card-size">Slice</div>
+                </div>
+                <button class="menu-card-add" onclick="addToCartFromCard(this,'Honeycomb Bread','5.75','Slice')">
+                  <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
  
@@ -569,7 +697,6 @@ function updateCartUI() {
   cart.forEach(item => {
     const div = document.createElement('div');
     div.className = 'cart-item';
-    // Use data attributes instead of inline onclick with raw strings — avoids apostrophe breakage
     const nameEncoded = encodeURIComponent(item.name);
     div.innerHTML = `
       <div class="cart-item-info">
@@ -589,7 +716,6 @@ function updateCartUI() {
   });
 }
  
-// Event delegation for qty buttons — handles names with apostrophes safely
 document.getElementById('cart-items').addEventListener('click', function(e) {
   const btn = e.target.closest('.qty-btn');
   if (!btn) return;
@@ -598,7 +724,7 @@ document.getElementById('cart-items').addEventListener('click', function(e) {
   changeQty(name, delta);
 });
  
-/* ── ADD FROM INLINE BUTTON ── */
+/* ── ADD FROM SLIDER INLINE BUTTON ── */
 function addToCartFromSlide(btn) {
   const slide = btn.closest('.menu-slide');
   addToCart(slide.dataset.name, slide.dataset.price, slide.dataset.size);
@@ -610,12 +736,15 @@ function addToCartFromSlide(btn) {
   }, 1400);
 }
  
-/* ── ADD FROM BELOW BUTTON ── */
-function addCurrentToCart(name) {
-  const wrapper = document.getElementById('slider-' + name);
-  const slides = Array.from(wrapper.querySelectorAll('.menu-slide'));
-  const slide = slides[sliderCurrents[name]];
-  addToCart(slide.dataset.name, slide.dataset.price, slide.dataset.size);
+/* ── ADD FROM GRID CARD BUTTON ── */
+function addToCartFromCard(btn, name, price, size) {
+  addToCart(name, price, size);
+  btn.classList.add('added');
+  btn.innerHTML = '✓ Added';
+  setTimeout(() => {
+    btn.classList.remove('added');
+    btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add';
+  }, 1400);
 }
  
 /* ── TOAST ── */
